@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import VoteButtons from '../votes/VoteButtons'
-import CommentSection from '../comments/CommentSection'
+import VoteButtons from '../shared/VoteButtons'
+import Comment from './Comment'
 
 export default function Post({ post }) {
   const [showComments, setShowComments] = useState(false)
@@ -18,18 +18,6 @@ export default function Post({ post }) {
           </div>
           <h2 className="text-xl font-medium">{post.title}</h2>
           <div className="mt-2 text-gray-800">{post.content}</div>
-          
-          {post.type === 'poll' && (
-            <div className="mt-4">
-              {post.options.map(option => (
-                <div key={option.id} className="mb-2">
-                  <button className="w-full text-left bg-gray-100 p-2 rounded">
-                    {option.name} ({option.votes})
-                  </button>
-                </div>
-              ))}
-            </div>
-          )}
 
           <div className="mt-4 flex items-center space-x-4 text-gray-500 text-sm">
             <button 
@@ -41,7 +29,14 @@ export default function Post({ post }) {
             </button>
           </div>
 
-          {showComments && <CommentSection postId={post.id} />}
+          {/* Hiển thị danh sách bình luận */}
+          {showComments && (
+            <div className="mt-4">
+              {post.comments.map((comment) => (
+                <Comment key={comment.id} comment={comment} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
