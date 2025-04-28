@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import HomePage from './pages/public/HomePage'
-import SubredditPage from './pages/public/SubredditPage'
-import LoginPage from './pages/auth/LoginPage'
-import SignupPage from './pages/auth/SignupPage'
-import Dashboard from './pages/admin/Dashboard'
-import Reports from './pages/admin/Reports'
-import NavBar from './components/layout/NavBar'
-import Footer from './components/layout/Footer'
+import HomePage from '@/pages/public/HomePage'
+import SubredditPage from '@/pages/public/SubredditPage'
+import LoginPage from '@/pages/auth/LoginPage'
+import SignupPage from '@/pages/auth/SignupPage'
+import Dashboard from '@/pages/admin/Dashboard'
+import Reports from '@/pages/admin/Reports'
+import NavBar from '@/components/layout/NavBar'
+import Footer from '@/components/layout/Footer'
 
 export default function App() {
   return (

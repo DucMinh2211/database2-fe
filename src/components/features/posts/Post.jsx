@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import VoteButtons from '../shared/VoteButtons'
-import Comment from './Comment'
-
+import VoteButtons from '@/shared/VoteButtons'
+import Comment from '@/Comment'
+import useAuth from '@/contexts/AuthContext'
 export default function Post({ post }) {
   const [showComments, setShowComments] = useState(false)
+  const { User } = useAuth() // Sử dụng useAuth để lấy thông tin người dùng
+
 
   return (
     <div className="bg-white rounded-lg shadow mb-4 p-4">

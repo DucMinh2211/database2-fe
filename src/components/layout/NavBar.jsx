@@ -1,9 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import { useAuth } from '@/contexts/AuthContext' // Thêm dòng này
 
 export default function NavBar() {
   const [searchQuery, setSearchQuery] = useState('') // Quản lý trạng thái tìm kiếm
   const navigate = useNavigate()
+  const { User, Logout } = useAuth() // Sử dụng useAuth để lấy thông tin người dùng
 
   const handleSearch = (e) => {
     e.preventDefault()
