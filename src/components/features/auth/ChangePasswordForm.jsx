@@ -1,6 +1,8 @@
 // components/features/auth/ChangePasswordForm.jsx
+
 import React, { useState } from "react";
-import { Button, Input } from "@/components/ui";
+import Button from "@/components/ui/Button";
+import Input from "@/components/ui/Input";
 
 export default function ChangePasswordForm({ onSubmit, loading, error }) {
     const [oldPassword, setOldPassword] = useState("");

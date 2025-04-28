@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Table, Card } from '@/components/ui'
+import Table from '@/components/ui/Table'
+import Card from '@/components/ui/Card'
 import { useAuth } from '@/contexts/AuthContext'
 
 export default function Reports() {
