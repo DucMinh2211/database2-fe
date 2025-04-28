@@ -1,7 +1,8 @@
 // components/features/users/LoginForm.jsx
+
 import React, { useState } from "react";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
+import Button from "@/components/ui/Button";
+import Input from "@/components/ui/Input";
 
 export default function LoginForm({ onSubmit, loading }) {
     const [email, setEmail] = useState("");

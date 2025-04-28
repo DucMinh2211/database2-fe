@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Input, Button } from '@/components/ui'
+import Input from '@/components/ui/Input'
+import Button from '@/components/ui/Button'
 
 export default function SignupPage() {
   // Quản lý trạng thái form đăng ký

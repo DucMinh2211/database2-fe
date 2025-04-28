@@ -1,8 +1,8 @@
 // components/features/users/SignupForm.jsx
 
 import React, { useState } from "react";
-import { Button } from "../database2-fe/src/components/ui/Button";
-import { Input } from "../database2-fe/src/components/ui/Input";
+import Button from "@/components/ui/Button";
+import Input from "@/components/ui/Input";
 
 export default function SignupForm({ onSubmit, loading }) {
     const [userName, setUserName] = useState("");
@@ -44,8 +44,8 @@ export default function SignupForm({ onSubmit, loading }) {
                     id="signup-username" // ID cho accessibility
                     type="text"
                     placeholder="Chọn tên đăng nhập của bạn"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
                     className="mt-1 block w-full"
                     disabled={loading}
                 />
