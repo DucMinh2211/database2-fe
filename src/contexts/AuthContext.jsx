@@ -1,10 +1,20 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 
 // Tạo context
-const AuthContext = createContext()
+const AuthContext = createContext(null)
+
+// Hook để sử dụng AuthContext - Định nghĩa BÊN NGOÀI AuthProvider
+export const useAuth = () => { // <-- Dùng export named 'useAuth'
+  const context = useContext(AuthContext)
+  // Có thể thêm kiểm tra để đảm bảo hook được sử dụng bên trong Provider
+  // if (context === undefined) {
+  //   throw new Error('useAuth must be used within an AuthProvider');
+  // }
+  return context
+}
 
 // Provider để quản lý trạng thái xác thực
-export function AuthProvider({ children }) {
+export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null) // Lưu thông tin người dùng
   const [loading, setLoading] = useState(true) // Trạng thái tải dữ liệu
   const [error, setError] = useState(null) // Lưu thông báo lỗi nếu có

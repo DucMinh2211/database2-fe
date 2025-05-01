@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { StatCard } from '@/components/ui/StatCard'
-import { Card } from '@/components/ui/Card'
+import StatCard from '@/components/ui/StatCard'
+import Card from '@/components/ui/Card'
 import { Table } from '@/components/ui/Table'
-import { useAuth } from '@/contexts/AuthContext'
-import { BarChart, PieChart } from '@/components/charts'
-import { formatNumber } from '@/utils/helpers'
+import useAuth from '@/contexts/AuthContext'
+import { BarChart, PieChart } from '@/components/charts/Charts'
+import { formatNumber } from '@/utils/Helpers'
 
 const Dashboard = () => {
   const { user } = useAuth()

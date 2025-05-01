@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Input from '@/components/ui/Input'
 import Button from '@/components/ui/Button'
-import { useAuth } from '@/contexts/AuthContext'
+import useAuth from '@/contexts/AuthContext'
 export default function LoginPage() {
   // Quản lý trạng thái form đăng nhập
   const [email, setEmail] = useState('')

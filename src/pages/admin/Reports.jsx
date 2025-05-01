@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Table from '@/components/ui/Table'
+import { Table } from '@/components/ui/Table'
 import Card from '@/components/ui/Card'
 import { useAuth } from '@/contexts/AuthContext'
 
