@@ -1,3 +1,4 @@
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import HomePage from '@/pages/public/HomePage'
 import SubredditPage from '@/pages/public/SubredditPage'

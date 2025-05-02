@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import VoteButtons from '@/shared/VoteButtons'
-import Comment from '@/Comment'
+import VoteButtons from '@/components/features/shared/VoteButtons'
+import Comment from '@/components/features/posts/Comment'
 import useAuth from '@/contexts/AuthContext'
 export default function Post({ post }) {
   const [showComments, setShowComments] = useState(false)

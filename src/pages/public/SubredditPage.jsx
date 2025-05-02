@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Post from '@/components/Post'
+import Post from '@/components/features/posts/Post'
 
 export default function SubredditPage() {
   const { subreddit } = useParams()

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Card } from '@/components/ui'
+import Card from '@/components/ui/Card'
 import Post from '@/components/features/posts/Post'
 
 export default function HomePage() {
