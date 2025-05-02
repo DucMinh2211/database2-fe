@@ -1,40 +1,43 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Input from '@/components/ui/Input'
-import Button from '@/components/ui/Button'
+// pages/auth/SignupPage.jsx
+
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Input from "@/components/ui/Input";
+import Button from "@/components/ui/Button";
 
 export default function SignupPage() {
   // Quản lý trạng thái form đăng ký
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   // Xử lý sự kiện đăng ký
   const handleSignup = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    setError(null)
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
 
     try {
-      const response = await fetch('/api/auth/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password }),
-      })
+      });
 
-      if (!response.ok) throw new Error('Đăng ký thất bại. Vui lòng kiểm tra thông tin.')
+      if (!response.ok)
+        throw new Error("Đăng ký thất bại. Vui lòng kiểm tra thông tin.");
 
       // Điều hướng đến trang đăng nhập sau khi đăng ký thành công
-      navigate('/login')
+      navigate("/login");
     } catch (err) {
-      setError(err.message)
+      setError(err.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -76,19 +79,15 @@ export default function SignupPage() {
               required
             />
           </div>
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={loading}
-          >
-            {loading ? 'Đang đăng ký...' : 'Đăng ký'}
+          <Button type="submit" className="w-full" disabled={loading}>
+            {loading ? "Đang đăng ký..." : "Đăng ký"}
           </Button>
         </form>
 
         {/* Liên kết đến LoginPage */}
         <div className="mt-4 text-center">
           <p className="text-sm text-gray-600">
-            Đã có tài khoản?{' '}
+            Đã có tài khoản?{" "}
             <a href="/login" className="text-blue-500 hover:underline">
               Đăng nhập ngay
             </a>
@@ -96,5 +95,5 @@ export default function SignupPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

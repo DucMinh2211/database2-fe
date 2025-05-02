@@ -1,44 +1,48 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Input from '@/components/ui/Input'
-import Button from '@/components/ui/Button'
-import useAuth from '@/contexts/AuthContext'
+// pages/auth/LoginPage.jsx
+
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Input from "@/components/ui/Input";
+import Button from "@/components/ui/Button";
+import useAuth from "@/contexts/AuthContext";
+
 export default function LoginPage() {
   // Quản lý trạng thái form đăng nhập
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
-  const { Login } = useAuth()
-  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { login } = useAuth("");
+
   // Xử lý sự kiện đăng nhập
   const handleLogin = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    setError(null)
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
 
     try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
-      })
+      });
 
-      if (!response.ok) throw new Error('Đăng nhập thất bại. Vui lòng kiểm tra thông tin.')
+      if (!response.ok)
+        throw new Error("Đăng nhập thất bại. Vui lòng kiểm tra thông tin.");
 
-      const data = await response.json()
+      const data = await response.json();
       // Lưu token hoặc thông tin user vào localStorage (nếu cần)
-      localStorage.setItem('token', data.token)
+      localStorage.setItem("token", data.token);
 
       // Điều hướng đến trang chủ sau khi đăng nhập thành công
-      navigate('/')
+      navigate("/");
     } catch (err) {
-      setError(err.message)
+      setError(err.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -70,19 +74,15 @@ export default function LoginPage() {
               required
             />
           </div>
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={loading}
-          >
-            {loading ? 'Đang đăng nhập...' : 'Đăng nhập'}
+          <Button type="submit" className="w-full" disabled={loading}>
+            {loading ? "Đang đăng nhập..." : "Đăng nhập"}
           </Button>
         </form>
 
         {/* Liên kết đến SignupPage */}
         <div className="mt-4 text-center">
           <p className="text-sm text-gray-600">
-            Chưa có tài khoản?{' '}
+            Chưa có tài khoản?{" "}
             <a href="/signup" className="text-blue-500 hover:underline">
               Đăng ký ngay
             </a>
@@ -90,5 +90,5 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
